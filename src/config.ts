@@ -28,6 +28,8 @@ const config = {
     url: envOrThrow("DB_URL"),
     migrationConfig: migrationConfig,
   } as DBConfig,
+  secret: envOrThrow("JWT_SECRET"),
+  polkaKey:envOrThrow("POLKA_KEY")
 };
 
 function envOrThrow(key: string) {
