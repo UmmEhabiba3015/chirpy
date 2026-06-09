@@ -31,16 +31,18 @@ app.get("/admin/metrics", getFileServerHits);
 // app.post("/admin/reset", resetFileServerHits);
 // app.post("/api/validate_chirp", validateChirp);
 
+app.get("/api/chirps", getChirpsHandler);
+app.get("/api/chirps/:chirpId", getChirpByIdHandler);
+
+app.put("/api/users", updateUserInfoHandler);
+app.delete("/api/chirps/:chirpId", deleteChirpsHandler);
+
 app.post("/api/users", createUserHandler);
 app.post("/admin/reset", resetUsersHandler);
 app.post("/api/chirps", chirpsHandler);
-app.get("/api/chirps", getChirpsHandler);
-app.get("/api/chirps/:chirpId", getChirpByIdHandler);
 app.post("/api/login", userLoginHandler);
 app.post("/api/refresh", refreshTokenHandler);
 app.post("/api/revoke", revokeTokenHandler);
-app.put("/api/users", updateUserInfoHandler);
-app.delete("/api/chirps/:chirpId", deleteChirpsHandler);
 app.post("/api/polka/webhooks", ChirpyRedUserHandler);
 
 app.use(errorHandler);
